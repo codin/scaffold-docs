@@ -3,5 +3,5 @@
 <p>Everything’s labelled and organised using the navigation menu on the left-hand side. So, now we’re acquainted, let’s get building an app.</p>
 
 <p>
-	<a class="btn" href="/start">Starting off with Scaffold &rarr;</a>
+	<a class="btn right" href="/start">Starting off with Scaffold &rarr;</a>
 </p>
