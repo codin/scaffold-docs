@@ -67,6 +67,11 @@ $nav = array(
 			array('url', 'URL'),
 			array('validator', 'Validator')
 		)
+	),
+	
+	array(
+		'slug' => 'functions',
+		'title' => 'Core functions'
 	)
 );
 

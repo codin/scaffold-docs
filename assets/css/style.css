@@ -8,12 +8,11 @@
 }
 
 body {
+	position: relative;
+	height: 100%;
+	
 	font: 15px/25px Rooney, serif;
 	color: #75798e;
-}
-
-body, html, header {
-	height: 100%;
 }
 
 section, header {
@@ -22,15 +21,17 @@ section, header {
 
 header, h1, h2, h3 {
 	font-family: "Museo Sans", sans-serif;
+	font-weight: 300;
 }
 	h1 {
 		padding: 20px 0 35px;
 
 		font-size: 36px;
 		line-height: 44px;
-		font-weight: 300;
-			
 		color: #54586a;
+	}
+	h2 {
+		padding: 10px 0 15px;
 	}
 	
 p {
@@ -44,10 +45,15 @@ p {
 	}
 
 header {
-	position: relative;
-	float: left;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	
+	height: 100%;
 	width: 250px;
-	min-height: 100%;
+	
+	overflow: auto;
 
 	background: #353846;
 }
@@ -80,9 +86,15 @@ header {
 		
 		border-bottom: 1px solid rgba(255,255,255,.1);
 	}
-		header ul li:first-child a {
+		header ul li:first-child a, header li:not(:first-child).active {
 			box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
 		}
+			header li:not(:first-child).active {
+				margin-top: -1px;
+			}
+			header li:not(:first-child).active a {
+				padding-top: 7px;
+			}
 		header ul a:hover {
 			color: #b8bed7;
 			background: rgba(255,255,255,.02);
@@ -97,6 +109,9 @@ header {
 				background: #2c2f3b;
 				border-bottom: 1px solid rgba(255,255,255,.1);
 			}
+				header li.active ul li.active a {
+					background: #262934;
+				}
 		header ul li li a {
 			padding: 3px 30px;
 			
@@ -114,7 +129,9 @@ header {
 	left: 125px;
 	
 	width: 700px;
-	
 	margin: 0 auto;
-	padding-top: 50px;
+	padding: 50px 0;
 }
+	.content ul, .content ol {
+		padding: 10px 25px 20px;
+	}

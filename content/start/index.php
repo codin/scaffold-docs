@@ -10,3 +10,6 @@
 	<li>Access to change the PHP <a href="./paths"><code>include_path</code></a> value or <code>DocumentRoot</code>.</li>
 	<li>Patience, young grasshopper.</li>
 </ol>
+
+<h2>How long will this take?</h2>
+<p>Setting up Scaffold shouldn’t take any longer than 10-15 minutes. Hopefully a lot less than that.</p>

@@ -17,12 +17,14 @@
 				<li <?php if(strpos($url, $item['slug']) !== false) echo 'class="active"'; ?>>
 					<a href="/<?php echo $item['slug']; ?>"><?php echo $item['title']; ?></a>
 
+					<?php if(isset($item['pages'])): ?>
 					<ul>
 					<?php foreach($item['pages'] as $page): ?>
 						<li <?php if(strpos($url, $page[0]) !== false) echo 'class="active"'; ?>>							<a href="/<?php echo $item['slug'] . '/' . $page[0]; ?>"><?php echo $page[1]; ?></a>
 						</li>
 					<?php endforeach; ?>
 					</ul>
+					<?php endif; ?>
 				</li>
 				<?php endforeach; ?>
 			</ul>
