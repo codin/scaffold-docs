@@ -52,6 +52,27 @@ a {
 		border-bottom: 1px solid #d8dffa;
 	}
 	
+dl {
+	position: relative;
+}
+	dt {
+		display: block;
+		padding: 4px 0 8px;
+		
+		font-size: 17px;
+		font-weight: 500;
+		color: #666b82;
+		
+		border-bottom: 1px solid #e6e8ec;
+	}
+		dt code {
+			font-weight: 500;
+			font-size: 14px;
+		}
+	dd {
+		padding: 15px;
+	}
+	
 .btn {
 	display: inline-block;
 	padding: 8px 20px;

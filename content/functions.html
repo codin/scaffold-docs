@@ -1,0 +1,103 @@
+<h1>Core functions</h1>
+<p>Some utilities are too small to warrant their own class, but still have enough use to come bundled with Scaffold. Allow us to present the core functions and their uses.</p>
+
+
+<dl>
+	<!-- grabb -->
+	<dt id="grab"><code>grab($file, $data = array())</code></dt>
+	<dd>
+		<p>Fetches the file, but does not directly output the results (like <a href="#fetch"><code>fetch()</code></a> does). Instead, it returns the file as a string, or an empty string if the file is not found.</p>
+		<p>You can optionally pass an array of data for the file as well, which will get <code>extract()</code>ed and passed to the file.</p>
+	
+		<pre><code class="language-php">grab(APP_BASE . 'test.php', array(
+	'title' => 'Hello' //  $title === 'hello' within test.php now
+));
+</code></pre>
+	</dd>
+	
+	<!-- fetch -->
+	<dt id="fetch"><code>fetch($file, $data = array())</code></dt>
+	<dd>
+		<p>Include a file and output the results if it exists, or add it to a list of failed files if not.</p>
+		<p>You can optionally pass an array of data for the file as well, which will get <code>extract()</code>ed and passed to the file.</p>
+	
+		<pre><code class="language-php">fetch(APP_BASE . 'test.php', array(
+	'title' => 'Hello' //  Works the same as grab()
+));
+</code></pre>
+	</dd>
+	
+	<!-- bad_files -->
+	<dt id="bad_files"><code>bad_files()</code></dt>
+	<dd>
+		<p>Outputs a list of files that failed to load. Will only work when the environment mode is set to “local”.</p>
+	
+		<pre><code class="language-php">bad_files();</code></pre>
+	</dd>
+	
+	<!-- hehehe dump -->
+	<dt id="dump"><code>dump()</code></dt>
+	<dd>
+		<p>A bit like PHP’s <code>var_dump</code>, but it wraps everything in a monospaced code block so it’s easier to read. Also, it’s the word “dump”. What’s not to love?</p>
+	
+		<pre><code class="language-php">dump($_SERVER);</code></pre>
+	</dd>
+	
+	<!-- load_time -->
+	<dt id="load_time"><code>load_time()</code></dt>
+	<dd>
+		<p>Returns the current time taken to execute a page (in seconds). Will stop the timer (so you can only use this function reliably once).</p>
+	
+		<pre><code class="language-php">echo 'it took ' . load_time() . ' seconds to load this page.';</code></pre>
+	</dd>
+	
+	<!-- first!!11!1 -->
+	<dt id="first"><code>first($array)</code></dt>
+	<dd>
+		<p>Returns the first element in an array. Accounts for multidimensional arrays and deleted indexes.</p>
+	
+		<pre><code class="language-php">$array = array('the' => 'cat', 'sat' => 'on', 'the' => 'mat');
+dump(first($array)); //  => 'cat'</code></pre>
+	</dd>
+	
+	<!-- nice guys, please finish here -->
+	<dt id="last"><code>last($array)</code></dt>
+	<dd>
+		<p>The opposite of <a href="#first"><code>first()</code></a>. Returns the last element in an array. Accounts for multidimensional arrays and deleted indexes.</p>
+	
+		<pre><code class="language-php">$array = array('the' => 'cat', 'sat' => 'on', 'the' => 'mat');
+dump(last($array)); //  => 'mat'</code></pre>
+	</dd>
+	
+	<!-- numeral -->
+	<dt id="numeral"><code>numeral($num)</code></dt>
+	<dd>
+		<p>Returns the numeric suffix for any Roman-style (using the characters 0-9) number.</p>
+	
+		<pre><code class="language-php">$number = 10;
+echo numeral($number); // 10th
+echo numeral(1523); // 1523rd</code></pre>
+	</dd>
+	
+	<!-- numeral -->
+		<dt id="count_words"><code>count_words($string)</code></dt>
+		<dd>
+			<p>A simple word counter, which counts spaces between words, but not within HTML tags.</p>
+		
+			<pre><code class="language-php">echo word_count('hello world'); // 2</code></pre>
+		</dd>
+
+<pre>
+numeral($number)
+count_words($str)
+pluralise($amount, $str, $alt = '')
+relative_time($date)
+scaffold_version()
+ip_address()
+random($array)
+random_string($length = 10, $range = 'abcdefghijklmnopqrstuvxwxyz1234567890')
+current_timestamp()
+is_https()
+linkify($url)
+merge($array = false)
+</pre>

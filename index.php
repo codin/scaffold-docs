@@ -11,11 +11,11 @@ if($url == '') $url = 'index';
 
 $base = 'content/' . $url;
 
-if(file_exists($base . '.php')) {
-	$file = $base . '.php';
+if(file_exists($base . '.html')) {
+	$file = $base . '.html';
 } else {
-	if(file_exists($base . '/index.php')) {
-		$file = $base . '/index.php';
+	if(file_exists($base . '/index.html')) {
+		$file = $base . '/index.html';
 	} else {
 		header('location: ../');
 	}
@@ -72,14 +72,40 @@ $nav = array(
 	array(
 		'slug' => 'functions',
 		'title' => 'Core functions'
+	),
+	
+	array(
+		'slug' => 'config',
+		'title' => 'Configuring your app',
+		
+		'pages' => array(
+			array('cache', 'Cache'),
+			array('crypt', 'Crypt'),
+			array('csrf', 'CSRF'),
+			array('database', 'Database'),
+			array('email', 'Email'),
+			array('env', 'Environment'),
+			array('error', 'Error'),
+			array('file', 'File'),
+			array('image', 'Image'),
+			array('input', 'Input'),
+			array('language', 'Language'),
+			array('misc', 'Miscellaneous'),
+			array('paths', 'Paths'),
+			array('routes', 'Routes'),
+			array('session', 'Session'),
+			array('template', 'Template')
+		)
 	)
 );
 
 //  Grab the file
-ob_start();
-include_once $file;
-$content = ob_get_clean();
+$content = file_get_contents($file);
 
 //  And give it to the theme
-include_once 'theme.php';
-exit;
+if(!isset($_GET['ajax'])) {
+	include_once 'theme.php';
+	exit;
+}
+
+echo json_encode(array('pie' => $content));

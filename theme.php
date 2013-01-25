@@ -5,6 +5,7 @@
 		<title>Scaffold Documentation</title>
 		
 		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="/assets/css/prism.css">
 	</head>
 	<body>
 		<header id="top">
@@ -33,5 +34,8 @@
 		<section class="content">
 			<?php echo $content; ?>
 		</section>
+		
+		<script src="/assets/js/prism.js"></script>
+		<script src="/assets/js/prism-php.js"></script>
 	</body>
 </html>
