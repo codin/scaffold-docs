@@ -54,23 +54,28 @@ a {
 	
 dl {
 	position: relative;
+	padding-top: 20px;
 }
 	dt {
 		display: block;
 		padding: 4px 0 8px;
 		
-		font-size: 17px;
-		font-weight: 500;
 		color: #666b82;
 		
 		border-bottom: 1px solid #e6e8ec;
 	}
+		dt small {
+			float: right;
+			font-size: 15px;
+			
+			color: #abb0c3;
+		}
 		dt code {
 			font-weight: 500;
 			font-size: 14px;
 		}
 	dd {
-		padding: 15px;
+		padding: 15px 15px 25px;
 	}
 	
 .btn {

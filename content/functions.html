@@ -1,10 +1,12 @@
 <h1>Core functions</h1>
 <p>Some utilities are too small to warrant their own class, but still have enough use to come bundled with Scaffold. Allow us to present the core functions and their uses.</p>
 
+<p>Also, sorry for the long page. When more documentation happens here, we’ll give each function its own page.</p>
+
 
 <dl>
 	<!-- grabb -->
-	<dt id="grab"><code>grab($file, $data = array())</code></dt>
+	<dt id="grab"><code>grab($file, $data = array())</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>Fetches the file, but does not directly output the results (like <a href="#fetch"><code>fetch()</code></a> does). Instead, it returns the file as a string, or an empty string if the file is not found.</p>
 		<p>You can optionally pass an array of data for the file as well, which will get <code>extract()</code>ed and passed to the file.</p>
@@ -16,7 +18,7 @@
 	</dd>
 	
 	<!-- fetch -->
-	<dt id="fetch"><code>fetch($file, $data = array())</code></dt>
+	<dt id="fetch"><code>fetch($file, $data = array())</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>Include a file and output the results if it exists, or add it to a list of failed files if not.</p>
 		<p>You can optionally pass an array of data for the file as well, which will get <code>extract()</code>ed and passed to the file.</p>
@@ -28,7 +30,7 @@
 	</dd>
 	
 	<!-- bad_files -->
-	<dt id="bad_files"><code>bad_files()</code></dt>
+	<dt id="bad_files"><code>bad_files()</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>Outputs a list of files that failed to load. Will only work when the environment mode is set to “local”.</p>
 	
@@ -36,7 +38,7 @@
 	</dd>
 	
 	<!-- hehehe dump -->
-	<dt id="dump"><code>dump()</code></dt>
+	<dt id="dump"><code>dump()</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>A bit like PHP’s <code>var_dump</code>, but it wraps everything in a monospaced code block so it’s easier to read. Also, it’s the word “dump”. What’s not to love?</p>
 	
@@ -44,7 +46,7 @@
 	</dd>
 	
 	<!-- load_time -->
-	<dt id="load_time"><code>load_time()</code></dt>
+	<dt id="load_time"><code>load_time()</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>Returns the current time taken to execute a page (in seconds). Will stop the timer (so you can only use this function reliably once).</p>
 	
@@ -52,7 +54,7 @@
 	</dd>
 	
 	<!-- first!!11!1 -->
-	<dt id="first"><code>first($array)</code></dt>
+	<dt id="first"><code>first($array)</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>Returns the first element in an array. Accounts for multidimensional arrays and deleted indexes.</p>
 	
@@ -61,7 +63,7 @@ dump(first($array)); //  => 'cat'</code></pre>
 	</dd>
 	
 	<!-- nice guys, please finish here -->
-	<dt id="last"><code>last($array)</code></dt>
+	<dt id="last"><code>last($array)</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>The opposite of <a href="#first"><code>first()</code></a>. Returns the last element in an array. Accounts for multidimensional arrays and deleted indexes.</p>
 	
@@ -70,7 +72,7 @@ dump(last($array)); //  => 'mat'</code></pre>
 	</dd>
 	
 	<!-- numeral -->
-	<dt id="numeral"><code>numeral($num)</code></dt>
+	<dt id="numeral"><code>numeral($num)</code><small data-version="0.1">since 0.1</small></dt>
 	<dd>
 		<p>Returns the numeric suffix for any Roman-style (using the characters 0-9) number.</p>
 	
@@ -79,25 +81,105 @@ echo numeral($number); // 10th
 echo numeral(1523); // 1523rd</code></pre>
 	</dd>
 	
-	<!-- numeral -->
-		<dt id="count_words"><code>count_words($string)</code></dt>
-		<dd>
-			<p>A simple word counter, which counts spaces between words, but not within HTML tags.</p>
-		
-			<pre><code class="language-php">echo word_count('hello world'); // 2</code></pre>
-		</dd>
-
-<pre>
-numeral($number)
-count_words($str)
-pluralise($amount, $str, $alt = '')
-relative_time($date)
-scaffold_version()
-ip_address()
-random($array)
-random_string($length = 10, $range = 'abcdefghijklmnopqrstuvxwxyz1234567890')
-current_timestamp()
-is_https()
-linkify($url)
-merge($array = false)
-</pre>
+	<!-- count_words -->
+	<dt id="count_words"><code>count_words($string)</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>A simple word counter, which counts spaces between words, but excludes punctuation and HTML tags.</p>
+	
+		<pre><code class="language-php">echo word_count('hello world, how are you doing today?');  //  7</code></pre>
+	</dd>
+	
+	<!-- pluralise -->
+	<dt id="pluralise"><code>pluralise($amount, $string, $ending = 's')</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Returns the plural form of a word based on the amount given. If the plural form of the word doesn‘t end in an “S”, you can pass a third argument to change the suffix.</p>
+	
+		<pre><code class="language-php">echo pluralise(1, 'flower');       // flower
+echo pluralise(150, 'flower');     // flowers
+echo pluralise(3, 'bunch', 'es');  // bunches</code></pre>
+	</dd>
+	
+	<!-- relative_time -->
+	<dt id="relative_time"><code>relative_time($date)</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Returns the plural form of a word based on the amount given. If the plural form of the word doesn‘t end in an “S”, you can pass a third argument to change the suffix.</p>
+		<p>The argument, <code>$date</code>, can be any date string parsed with <code>strtotime()</code>, but will run quicker if you pass a UNIX timestamp.</p>
+	
+		<pre><code class="language-php">echo relative_time(time() - 20);    //  just now
+echo relative_time(1123291382417);    //  8 years ago
+echo relative_time('June 17, 2000');  //  13 years ago</code></pre>
+	</dd>
+	
+	<!-- scaffold_version -->
+	<dt id="scaffold_version"><code>scaffold_version()</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Returns the Scaffold version. Bet you didn’t see that one coming.</p>
+	
+		<pre><code class="language-php">dump(scaffold_version());  //  float(0.1)</code></pre>
+	</dd>
+	
+	<!-- ip_address -->
+	<dt id="ip_address"><code>ip_address()</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Gets the IP address of the current visitor. Accounts for proxy servers and some basic IP masking.</p>
+	
+		<pre><code class="language-php">echo 'Your IP address is: ' . ip_address();  //  Your IP address is: 133.7.127.69</code></pre>
+	</dd>
+	
+	<!-- random -->
+	<dt id="random"><code>random($array)</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Returns a random key from an array.</p>
+	
+		<pre><code class="language-php">echo shuffle(array('jack', 'queen', 'king', 'cat'));  //  cat (hopefully)</code></pre>
+	</dd>
+	
+	<!-- random_string -->
+	<dt id="random_string"><code>random_string($length, $characters = '[a-z0-9]')</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Returns a random key from an array.</p>
+	
+		<pre><code class="language-php">echo random_string(15);  //  r98xwehwrq3l2vz
+echo random_string(20, 'hello world');  //  lhdel lrwhdhrhlloe</code></pre>
+	</dd>
+	
+	<!-- random_string -->
+	<dt id="random_string"><code>random_string($length, $characters = '[a-z0-9]')</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Returns a random key from an array.</p>
+	
+		<pre><code class="language-php">echo random_string(15);  //  r98xwehwrq3l2vz
+echo '"' . random_string(20, 'hello world') . '"';  //  "lhdel lrwhdhrhlloe"</code></pre>
+	</dd>
+	
+	<!-- current_timestamp -->
+	<dt id="current_timestamp"><code>current_timestamp($length, $characters = '[a-z0-9]')</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Gets a MySQL-style <code>CURRENT_TIMESTAMP</code>.</p>
+	
+		<pre><code class="language-php">echo current_timestamp();  //  2013-01-25 18:36:52</code></pre>
+	</dd>
+	
+	<!-- is_https -->
+	<dt id="is_https"><code>is_https()</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Check whether the current request is over SSL (HTTPS) or not.</p>
+	
+		<pre><code class="language-php">dump(is_https());  //  bool(false)</code></pre>
+	</dd>
+	
+	<!-- linkify -->
+	<dt id="linkify"><code>linkify($str)</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Auto-link any URLs within a string. Also performs Twitter-style hashtag and @username auto-linking.</p>
+	</dd>
+	
+	<!-- merge -->
+	<dt id="merge"><code>merge($a, $b, $c, &hellip;)</code><small data-version="0.1">since 0.1</small></dt>
+	<dd>
+		<p>Return the first “truthy” value. Accepts as many arguments as you want. If you pass an array as the only argument, it’ll return the first truthy value in that array.</p>
+	
+		<pre><code class="language-php">echo merge(false, '', 'hello', 'world');  //  hello
+echo merge(array($undefinedVariable, 'welcome', 'mr bond'));  //  welcome</code></pre>
+	</dd>
+</dl>
