@@ -1,0 +1,25 @@
+// Example writing some json data to a file.
+// storage()->write('test.json', json_encode(['foo' => 'bar']));
+
+// Dispatch example event to add "Welcome to" to the
+// title in the view.
+// dispatch(new \App\Events\MyEvent('Welcome to'));
+
+
+// $message = new Message();
+
+// $message->setFrom('John <john@example.com>')
+//     ->addTo('childscraig17@gmail.com')
+//     ->setSubject('Order Confirmation')
+//     ->setBody("Hello, Your order has been accepted.");
+
+// mailer()->send($message);
+
+// // Define a route with a parameter
+// $router->route('GET', '/test/{slug}', [
+//     'name'       => 'test',
+//     'controller' => '\App\Controllers\PagesController@test',
+// ]);
+
+// Define a resourceful read-only route.
+// $router->resource('articles', ['read']);
