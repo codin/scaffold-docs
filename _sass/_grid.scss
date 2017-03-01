@@ -1,0 +1,85 @@
+/*!
+ * Flynn Grid Structure
+ * http://daviddarnes.github.io/flynn
+ */
+
+// Default variables for fluid grid columns and gutters and a max container width, add comments when using a breakpoint based grid
+$column: 7%; // The column width
+$gutter: 1.333%; // The gutter width
+
+.container { // The maximum size of your fluid grid
+	max-width: 1000px;
+	clear: both;
+	float: none;
+	margin: 0 auto;
+}
+
+.row {
+	margin-left: -$gutter;
+	clear: both;
+	zoom: 1;
+	&:after, &:before {
+		display: table;
+		line-height: 0;
+		content: "";
+		clear: both;
+	}
+}
+
+[class*="span-"] {
+	margin-left: $gutter;
+	float: left;
+	max-width: 100%;
+}
+
+.span-1 {  width: $column; }
+.span-2 {  width: ($column * 2 ) + ($gutter * 1 ); }
+.span-3 {  width: ($column * 3 ) + ($gutter * 2 ); }
+.span-4 {  width: ($column * 4 ) + ($gutter * 3 ); }
+.span-5 {  width: ($column * 5 ) + ($gutter * 4 ); }
+.span-6 {  width: ($column * 6 ) + ($gutter * 5 ); }
+.span-7 {  width: ($column * 7 ) + ($gutter * 6 ); }
+.span-8 {  width: ($column * 8 ) + ($gutter * 7 ); }
+.span-9 {  width: ($column * 9 ) + ($gutter * 8 ); }
+.span-10 { width: ($column * 10) + ($gutter * 9 ); }
+.span-11 { width: ($column * 11) + ($gutter * 10); }
+.span-12 { width: ($column * 12) + ($gutter * 11); }
+
+[class*="span-"] {
+	&.shift-1 {  margin-left:$column + $gutter * 2; }
+	&.shift-2 {  margin-left:$column * 2  + $gutter * 3; }
+	&.shift-3 {  margin-left:$column * 3  + $gutter * 4; }
+	&.shift-4 {  margin-left:$column * 4  + $gutter * 5; }
+	&.shift-5 {  margin-left:$column * 5  + $gutter * 6; }
+	&.shift-6 {  margin-left:$column * 6  + $gutter * 7; }
+	&.shift-7 {  margin-left:$column * 7  + $gutter * 8; }
+	&.shift-8 {  margin-left:$column * 8  + $gutter * 9; }
+	&.shift-9 {  margin-left:$column * 9  + $gutter * 10; }
+	&.shift-10 { margin-left:$column * 10 + $gutter * 11; }
+	&.shift-11 { margin-left:$column * 11 + $gutter * 12; }
+}
+
+
+// IE & Browser Fixes
+[class*="span-"], .container, .row { zoom: 1; }
+
+img { max-width: 100%; height: auto; }
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+// Single column mobile structure
+@media (max-width: 767px) {
+	[class*="span-"] {
+		margin-left: 0; width: 100%;
+		&[class*="shift-"] { margin-left: 0; }
+	}
+
+	.row { margin: 0 $gutter; }
+	.row .row { margin: 0; }
+	.container { width: 100%; }
+}

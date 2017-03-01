@@ -1,0 +1,23 @@
+# Header nav
+header:
+- title: Scaffold
+  url: 'https://github.com/codin/scaffold/'
+
+
+# Footer nav
+footer:
+- title: License
+  url: 'https://www.gnu.org/licenses/gpl.txt'
+- title: GitHub
+  url: 'http://github.com/codin/scaffold'
+- title: Twitter
+  url: 'http://twitter.com/codin_co'
+
+# Sidebar nav
+sidebar:
+
+# Getting started
+- title: Getting started
+  subnav:
+  - title: Installation
+    url: /

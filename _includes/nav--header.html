@@ -1,0 +1,5 @@
+{% if site.data.navigation.header %}
+  {% for item in site.data.navigation.header %}
+    <a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a>
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,1079 @@
+---
+layout: none
+---
+
+@import 'grid';
+@import 'font-face';
+@import 'syntax';
+
+// Mixins
+
+$lightbg: #ffffff;
+$lighthover: lighten($lightbg, 3.5%);
+$midbg: #FE654F;
+$link: #676778;
+$linkcontrast: adjust-hue($link, 100%);
+$subtitle: #272933;
+$copy: #28262C;
+$font: -apple-system, 
+    BlinkMacSystemFont, 
+    "Segoe UI", 
+    Roboto, 
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue", 
+    sans-serif;
+$imageborder: #f4f4f4;
+$corners: 4px;
+$twitter: #00aced;
+$facebook: #3B5999;
+$google: #e34429;
+$white: #ffffff;
+
+// Prefix Mixins
+
+@mixin box-shadow($shadow: 0 0 20px fade-out($subtitle, 0.75)) {
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-o-box-shadow: $shadow;
+	-ms-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+@mixin transition($transition: .2s) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-ms-transition: $transition;
+	transition: $transition;
+}
+
+@mixin animation($animation:slideup 2s) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin transform-origin($origin: 0 0) {
+	-webkit-transform-origin: $origin;
+	-moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+@mixin transform($transform) {
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-o-transform: $transform;
+	-ms-transform: $transform;
+	transform: $transform;
+}
+
+@mixin user-select($select: none) {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+// Keyframe Animations
+@-webkit-keyframes fade-in {
+	0%		{ -webkit-transform: translateY(15%); opacity: 0; }
+	20%		{ -webkit-transform: translateY(15%); opacity: 0; }
+	100%	{ -webkit-transform: translateY(0%); opacity: 1; }
+}
+@-moz-keyframes fade-in {
+	0%		{ -moz-transform: translateY(15%); opacity: 0; }
+	20%		{ -moz-transform: translateY(15%); opacity: 0; }
+	100%	{ -moz-transform: translateY(0%); opacity: 1; }
+}
+@-o-keyframes fade-in {
+	0%		{ -o-transform: translateY(15%); opacity: 0; }
+	20%		{ -o-transform: translateY(15%); opacity: 0; }
+	100%	{ -o-transform: translateY(0%); opacity: 1; }
+}
+@keyframes fade-in {
+	0%		{ transform: translateY(15%); opacity: 0; }
+	20%		{ transform: translateY(15%); opacity: 0; }
+	100%	{ transform: translateY(0%); opacity: 1; }
+}
+
+@-webkit-keyframes swing {
+	0% {
+		-webkit-transform: rotate(0deg); /* Start position, normal */
+		-webkit-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	25% {
+		-webkit-transform: rotate(15deg); /* Swing backwards 45 degrees */
+		-webkit-animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	50% {
+		-webkit-transform: rotate(0deg); /* Half way through the swing, same as start position */
+		-webkit-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	75% {
+		-webkit-transform: rotate(-15deg); /* Swing forward 45 degrees */
+		-webkit-animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	100% {
+		-webkit-transform: rotate(0deg); /* Back to start position, will restart loop and appear seamless */
+		-webkit-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+}
+@-moz-keyframes swing {
+	0% {
+		-moz-transform: rotate(0deg); /* Start position, normal */
+		-moz-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	25% {
+		-moz-transform: rotate(15deg); /* Swing backwards 45 degrees */
+		-moz-animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	50% {
+		-moz-transform: rotate(0deg); /* Half way through the swing, same as start position */
+		-moz-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	75% {
+		-moz-transform: rotate(-15deg); /* Swing forward 45 degrees */
+		-moz-animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	100% {
+		-moz-transform: rotate(0deg); /* Back to start position, will restart loop and appear seamless */
+		-moz-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+}
+@-o-keyframes swing {
+	0% {
+		-o-transform: rotate(0deg); /* Start position, normal */
+		-o-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	25% {
+		-o-transform: rotate(15deg); /* Swing backwards 45 degrees */
+		-o-animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	50% {
+		-o-transform: rotate(0deg); /* Half way through the swing, same as start position */
+		-o-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	75% {
+		-o-transform: rotate(-15deg); /* Swing forward 45 degrees */
+		-o-animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	100% {
+		-o-transform: rotate(0deg); /* Back to start position, will restart loop and appear seamless */
+		-o-animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+}
+@keyframes swing {
+	0% {
+		transform: rotate(0deg); /* Start position, normal */
+		animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	25% {
+		transform: rotate(20deg); /* Swing backwards 45 degrees */
+		animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	50% {
+		transform: rotate(0deg); /* Half way through the swing, same as start position */
+		animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+	75% {
+		transform: rotate(-20deg); /* Swing forward 45 degrees */
+		animation-timing-function: ease-in; /* Ease into this position from the previous position */
+	}
+	100% {
+		transform: rotate(0deg); /* Back to start position, will restart loop and appear seamless */
+		animation-timing-function: ease-out; /* No easing leaving this position, but eases into the next position */
+	}
+}
+
+// Global Styling
+body {
+	background: $midbg;
+	font-family: $font;
+	font-weight: 400;
+	font-size: 14px;
+	color: $copy;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	-webkit-text-size-adjust: none;
+}
+
+body, html {
+	margin: 0;
+	height: 100%;
+	min-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+	color: $copy;
+}
+
+h1 {
+	font-size: 2.3em;
+	line-height: 1.1em;
+	margin: .8em 0;
+}
+
+h2 {
+	font-size: 1.1em;
+	font-weight: 500;
+	margin: 0 0 .4em 0;
+	color: $copy;
+}
+
+h3 {
+	font-size: 1.2em;
+	font-weight: 400;
+	line-height: 1.3em;
+	margin: 0 0 .4em 0;
+	a {
+		font-weight: 500;
+	}
+}
+
+p {
+	font-weight: 400;
+	line-height: 1.8em;
+	margin: 0 0 1em 0;
+	padding: 0;
+	color: $copy;
+	+ h2,
+	+ h3 {
+		margin-top: 1.2em;
+	}
+}
+
+li {
+  line-height: 1.8em;
+}
+
+a {
+	color: $link;
+	text-decoration: none;
+  border-bottom: 1px solid lighten($link, 40%);
+	@include transition(.2s);
+	&:hover {
+		color: darken($link, 10%);
+    border-color: lighten($link, 20%);
+	}
+	&:active {
+		color: darken($link, 20%);
+	}
+}
+
+img {
+	border: 0;
+}
+
+ul {
+	padding: 0 0 1.2em 1.4em;
+	line-height: 2em;
+	margin: 0;
+}
+
+li {
+	li {
+		list-style-type: circle;
+	}
+}
+
+blockquote {
+	font-size: 1.7em;
+	line-height: 1.4em;
+	font-weight: 300;
+	quotes: "\201C" "\201D" "\2018" "\2019";
+	color: $subtitle;
+	position: relative;
+	&:before {
+		content: open-quote;
+		color: lighten($copy, 40%);
+		font-size: 4em;
+		top: .25em;
+		left: -.5em;
+		position: absolute;
+	}
+	&:after {
+		content: no-close-quote;
+	}
+}
+
+cite {
+	color: lighten($copy, 40%);
+	display: block;
+	font-size: .9em;
+}
+
+small {
+	font-size: .85em;
+	font-weight: 400;
+	color: $subtitle;
+}
+
+strong {
+	font-weight: 600;
+}
+
+code {
+    display: inline-block;
+    max-width: 100%;
+    padding: .1em .5em;
+		line-height: 1.4em;
+		background: $lightbg;
+		border: 1px solid darken($lightbg, 7%);
+		border-radius: $corners;
+}
+
+pre {
+	> code {
+    overflow: auto;
+		width: 100%;
+		padding: 1.1em 0.9em;
+	}
+}
+
+::selection {
+	background: $link;
+	color: $lightbg;
+}
+::-moz-selection {
+	background: $link;
+	color: $lightbg;
+}
+
+// Button Styling
+a.button, .screens a, .screens:hover a, .share-button label, .share-button a {
+	display: inline-block;
+	line-height: 1.2em;
+	@include transition(background .2s);
+	background: $copy;
+	color: $lightbg;
+	padding: .8em 1.4em .85em;
+	border-radius: $corners;
+	white-space: nowrap;
+	cursor: pointer;
+	font-weight: 500;
+  border: none;
+	span {
+		text-transform: capitalize;
+		font-family: $font;
+		font-weight: 500;
+		font-size: 1em;
+		padding-left: 0;
+		padding-right: .3em;
+	}
+	&:hover {
+		background: darken($copy, 10%);
+		opacity: 1;
+	}
+	&:active {
+		color: $lightbg;
+		background: darken($copy, 20%);
+	}
+	&.edit {
+		background: lighten($link, 10%);
+		position: absolute;
+		top: 0;
+		right: 0;
+		&:hover {
+			background: $link;
+		}
+		svg {
+			vertical-align: top;
+			width: 16px;
+			height: 16px;
+		}
+	}
+}
+
+// Share Button
+.share-button {
+	display: inline-block;
+	overflow: hidden;
+	border-right: .5em solid $linkcontrast;
+	border-radius: $corners;
+	@include transition(border .2s);
+	line-height: 2.45em;
+	&:hover {
+		border-color: darken($linkcontrast, 10%);
+		label {
+			background: darken($linkcontrast, 10%);
+		}
+	}
+	a {
+		display: inline-block;
+		text-align: center;
+		overflow: hidden;
+		max-width: 0;
+		padding-left: 0;
+		padding-right: 0;
+		border-radius: 0;
+		@include transition(.5s);
+	}
+	label {
+		background: $linkcontrast;
+		@include user-select();
+		padding-right: .5em;
+		border-radius: $corners 0 0 $corners;
+		touch-callout: none;
+	}
+	label, a {
+		vertical-align: top;
+		color: $lightbg;
+	}
+	input {
+		position: absolute;
+		left: -100%;
+	}
+	input:checked + span {
+		a {
+			min-width: 24px;
+			max-width: 80px;
+			padding-left: .8em;
+			padding-right: .8em;
+		}
+	}
+}
+
+// Icons
+[class*="entypo-"] {
+	&:after {
+		box-sizing: border-box;
+		font-family: 'entypo', sans-serif;
+	}
+}
+.button:before, .entypo-share:before, .share-button a:before {
+	display: none;
+}
+
+.entypo-down:after {
+	content: "\e4b0";
+}
+.entypo-repo:after {
+	content: "\f300";
+}
+.entypo-demo:after {
+	content: "\e74e";
+}
+.entypo-share:after {
+	content: "\e715";
+}
+.entypo-forward:after {
+	content: "\27a6";
+}
+
+a.entypo-twitter {
+	background: $twitter;
+	&:after {
+		content: "\f309";
+	}
+	&:hover {
+		background: darken($twitter, 10%);
+	}
+}
+a.entypo-facebook {
+	background: $facebook;
+	&:after {
+		content: "\f30c";
+	}
+	&:hover {
+		background: darken($facebook, 10%);
+	}
+}
+a.entypo-google {
+	background: $google;
+	&:after {
+		content: "\f30f";
+	}
+	&:hover {
+		background: darken($google, 10%);
+	}
+}
+
+.screens {
+	.next:after, .prev:after {
+		font-family: 'entypo', sans-serif;
+	}
+	.prev:after {
+		content: "\2b05";
+	}
+	.next:after {
+		content: "\27a1";
+	}
+}
+
+.buttons {
+	position: absolute;
+	@include transition(opacity .2s);
+	opacity: 0;
+	-webkit-backface-visibility: hidden;
+}
+
+.figure {
+	margin-top: 0;
+	margin-bottom: 15px;
+	margin-right: 0;
+	position: relative;
+}
+
+// Header
+.menu .logo {
+	margin: 0;
+  border: none;
+	// &:hover svg {
+	// 	@include animation(swing .8s infinite);
+	// }
+}
+.menu {
+	font-weight: 500;
+	float: left;
+	svg {
+		fill: darken($midbg, 30%);
+		margin: -12px 0 -7px;
+		vertical-align: middle;
+		@include transform-origin(50% 18%);
+		max-width: 24px;
+		max-height: 22px;
+	}
+	a {
+		margin-left: 58px;
+        border: none;
+		color: $white;
+        opacity: 0.8;
+        
+        // &:not(.logo) {
+        //     padding-bottom: 4px;
+
+        //     &:hover {            
+        //         border-bottom: 1px solid $white;
+        //     }
+        // }
+
+        &:hover {
+            opacity: 1;
+		}
+	}
+}
+.header .aside {
+	text-align: right;
+}
+
+.header {
+	overflow: hidden;
+	position: relative;
+	background-size: cover;
+	background-position: center 55%;
+	.menu, .aside {
+		padding: 3em 0;
+		@include transition();
+	}
+	.figure {
+		margin-bottom: -3em;
+		@include box-shadow();
+		@include animation(fade-in 1.7s);
+		-webkit-backface-visibility: hidden;
+	}
+	.hgroup {
+		padding-top: 2.5em;
+		@include animation(fade-in 1.9s);
+		-webkit-backface-visibility: hidden;
+	}
+	h2 {
+		font-size: 1.85em;
+		line-height: 1.3em;
+		font-weight: 300;
+		color: $subtitle;
+	}
+	.buttons {
+		width: 100%;
+		text-align: center;
+		bottom: 6em;
+		left: 0;
+		margin-left: -5px;
+		a {
+			margin-left: 10px;
+		}
+	}
+	.button {
+		display: inline;
+        background: darken($midbg, 25%);
+        color: $white;
+
+        &:hover {
+            background: darken($midbg, 40%);
+        }
+	}
+	p {
+		color: lighten($copy, 10%);
+		line-height: 1.3em;
+		padding-bottom: 0.5em;
+	}
+}
+
+// Mobile toggle button
+.toggle {
+	position: absolute;
+	height: 35px;
+	width: 25px;
+	bottom: 7px;
+	right: 0;
+
+	display: none;
+}
+
+.toggle span, .toggle span:before, .toggle span:after {
+	display: block;
+	position: relative;
+	background: fade-out($copy, 0.2);
+	width: 25px;
+	height: 4px;
+	padding: 0;
+	content: "";
+	border-radius: 1px;
+}
+.toggle span {
+	top: 10px;
+	&:after {
+		top: 4px;
+	}
+	&:before {
+		top: -8px;
+	}
+}
+
+// Content Blocks
+.article {
+	img {
+		width: 100%;
+	}
+	&:hover {
+		.buttons {
+			opacity: 1;
+		}
+	}
+}
+
+.content {
+	position: relative;
+}
+
+.main {
+	background: $lightbg;
+	display: block;
+	padding: 2.4em 0 .4em 0;
+	.article {
+		@include transition(background .2s);
+		background: $lightbg;
+		border-radius: $corners;
+		margin-bottom: 2em;
+		&:hover {
+			background: $lighthover;
+			.hgroup:after {
+				@include linear-gradient(fade-out($lighthover, 1), $lighthover);
+				border-right: 8px solid $lighthover;
+			}
+		}
+		.buttons {
+			bottom: 15px;
+			left: 15px;
+		}
+		&.container {
+			background: none;
+		}
+	}
+	.figure {
+		margin-left: 0;
+		 > a {
+			background: $imageborder;
+			padding-top: 10px;
+			border-radius: $corners $corners 0 0;
+			display: block;
+			line-height: 0;
+			overflow: hidden;
+		}
+	}
+	.hgroup {
+		position: relative;
+		padding: 0 20px 20px;
+		white-space: nowrap;
+		overflow: hidden;
+		&:after {
+			@include transition(.2s);
+			position: absolute;
+			display: block;
+			content: "";
+			height: 100%;
+			width: 15%;
+			@include linear-gradient(fade-out($lightbg, 1), $lightbg);
+			border-right: 8px solid $lightbg;
+			top: -20px;
+			right: 0;
+		}
+	}
+}
+
+// Container padding
+.container {
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+// Sidebar
+.sidebar {
+	.menu {
+		float: none;
+		padding-right: 10%;
+	}
+	a,
+	span {
+  	margin-left: 0;
+		padding: .4em 1em;
+		width: 100%;
+		display: block;
+	}
+	span {
+		padding: 1.2em 0 .8em;
+	}
+	a {
+		font-size: .95em;
+		&:hover {
+			background: darken($lightbg, 2%);
+		}
+	}
+	li {
+		list-style: none;
+	}
+	.child-item {
+		border-top: 1px solid darken($lightbg, 5%);
+		font-weight: 400;
+		&:last-of-type {
+			border-bottom: 1px solid darken($lightbg, 5%);
+		}
+		.active {
+			font-weight: 500;
+			color: $link;
+			background: fade-out(lighten($link, 45%), 0.75);
+		}
+	}
+	ul {
+		padding: 0;
+	}
+}
+
+// Advertisements
+.article.ad, .ad .figure > a {
+	background: $lightbg;
+	.button {
+		background: $linkcontrast;
+		&:hover {
+			background: darken($linkcontrast, 10%);
+		}
+	}
+/*
+	background: $lighthover;
+	.hgroup:after {
+		#gradient .horizontal(fade-out($lighthover, 100%), $lighthover);
+		border-right: 8px solid $lighthover;
+	}
+*/
+}
+
+// Footer
+.pagination {
+	font-weight: 500;
+	text-align: center;
+	padding: 1.5em 0 3.2em 0;
+	a {
+		padding: 0 10px;
+	}
+}
+
+.footer {
+	font-size: .9em;
+	font-weight: 400;
+	padding-top: 4em;
+	padding-bottom: 4em;
+	clear: both;
+	p {
+		line-height: 1.4em;
+		color: $white;
+		margin: 0;
+	}
+	.menu {
+		text-align: right;
+		a {
+			margin-left: 35px;
+		}
+	}
+}
+
+// Page Headings
+.name {
+	h1 {
+        color: $white;
+		margin: .4em 0 1.25em;
+	}
+}
+
+.page {
+	padding-top: 2em;
+
+}
+
+.article.container, .article.container:hover {
+	padding-bottom: 50px;
+	background: none;
+	h2 {
+		font-size: 1.85em;
+		line-height: 1.3em;
+		font-weight: 300;
+		color: $subtitle;
+	}
+	h3 {
+		font-weight: 500;
+		color: $subtitle;
+	}
+	.button, span.share-btn.sharer-0 {
+		margin: 1.1em 1.1em 0 0;
+		vertical-align: text-top;
+	}
+	.edit {
+		margin-right: 0;
+	}
+}
+
+.article.container {
+	.row {
+		display: flex;
+	}
+	.aside {
+		order: -1;
+	}
+}
+
+.screens, .error {
+	margin-top: -10em;
+	position: relative;
+	@include box-shadow();
+	line-height: 0;
+	a {
+		background: none;
+		color: $link;
+	}
+	&:hover a, a {
+		padding-left: .4em;
+		padding-right: .4em;
+		padding-bottom: .75em;
+		line-height: 0.2em;
+	}
+	.rslides_nav {
+		position: absolute;
+		top: 47%;
+		font-size: 1.4em;
+	}
+	.prev {
+		left: 10px;
+	}
+	.next {
+		right: 10px;
+	}
+}
+
+.related {
+	.row > h2 {
+		font-size: 1.85em;
+		line-height: 1.3em;
+		font-weight: 300;
+		color: $subtitle;
+		margin-left: $gutter;
+	}
+}
+
+// Slider Styling
+.rslides {
+	position: relative;
+	overflow: hidden;
+	li {
+		position: absolute;
+		display: none;
+		width: 100%;
+		left: 0;
+		top: 0;
+		&:first-child {
+			position: relative;
+			display: block;
+			float: left;
+		}
+	}
+	img {
+		display: block;
+	}
+}
+
+// Responsive Styling
+@media (min-width: 2000px) {
+	body {
+		font-size: 20px;
+	}
+	a.button {
+		line-height: .8em;
+		&.icon {
+			height: .9em;
+		}
+	}
+	.logo svg {
+		width: 1.5em;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	body {
+		font-size: 11px;
+	}
+	.menu a {
+		margin-left: 22px;
+	}
+	.sidebar a {
+		margin-left: 0;
+	}
+	.footer .menu a {
+		margin-left: 16px;
+	}
+}
+
+@media (max-width: 767px) {
+	.toggle {
+		display: block;
+	}
+	.menu {
+		float: none;
+		text-align: center;
+		position: relative;
+		.logo {
+			width: auto;
+			padding: .65em 0;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+		svg {
+			position: relative;
+			margin: 0;
+		}
+		a {
+			margin: 0;
+			padding: .3em 0;
+			display: block;
+		}
+	}
+	.header {
+		.aside {
+			text-align: center;
+			padding: 0;
+		}
+		strong {
+			width: 100%;
+			float: left;
+			margin-bottom: .3em;
+		}
+		.hgroup {
+			padding: 0;
+		}
+		.button {
+			display: inline-block;
+		}
+	}
+	.related .row > h2 {
+		margin: 0 ($gutter * 2) .3em;
+	}
+	.screens, .error {
+		margin-top: 0;
+	}
+	.footer, .footer .menu {
+		text-align: center;
+		p {
+			padding: 0 5em 2em;
+		}
+	}
+	h1 {
+		max-width: 100%;
+		text-align: center;
+	}
+	h2 {
+		font-size: 1em;
+	}
+	h3 {
+		font-size: .9em;
+	}
+	.header {
+		h2 {
+			display: none;
+		}
+		.menu {
+			padding: 1em 0 3em 0;
+			font-size: 1.5em;
+			margin-top: -220px;
+			&[data-state=open] {
+				margin-top: 0;
+			}
+		}
+	}
+	.button {
+		line-height: 1.2em;
+	}
+	.sidebar .menu {
+		padding-right: 0;
+	}
+	.footer .menu a {
+		margin-left: 0;
+		clear: both;
+	}
+	.row {
+		margin-left: -$gutter * 2;
+		margin-right: 0;
+	}
+	.container {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+	.article.container {
+		.row {
+			display: block;
+		}
+	}
+	[class*="span-"] {
+		margin-left: $gutter * 2;
+		width: 100% - ($gutter * 2);
+	}
+	.span-3 {
+		// width: ($column * 6 ) + ($gutter * 4 );
+		margin-right: 0;
+	}
+	.figure {
+		margin-bottom: 10px;
+	}
+	.main {
+		.hgroup {
+			padding: 0 10px 12px;
+		}
+		.article {
+			margin-bottom: 1.4em;
+		}
+	}
+	a.button.edit {
+		position: relative;
+	}
+}

@@ -1,1 +1,58 @@
-theme: jekyll-theme-cayman
+# Excluded files
+exclude:
+- README.md
+- LICENSE
+- CNAME
+
+# Gems
+gems:
+- jekyll-sitemap
+- jekyll-mentions
+- jemoji
+- jekyll-paginate
+
+# SCSS
+sass:
+  style: :compressed
+
+# Permalinks
+permalink: pretty
+
+excerpt_separator: <!-- more -->
+
+jekyll-mentions: https://twitter.com
+
+# Site info
+url: "https://codin.github.io/scaffold-docs/"
+title: "Scaffold Documentation"
+name: "Scaffold"
+description: "How to use the Scaffold web framework"
+repository: https://github.com/codin/scaffold-docs
+
+# Networks
+networks:
+  Twitter: http://twitter.com/codin_co
+  GitHub: http://github.com/codin/scaffold
+  # Facebook: https://dribbble.com/scaffold
+
+# Metadata
+meta:
+  twitter: codin_co
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      is_page: true
+      layout: page
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      is_post: true
+      layout: post
+      icon: article
