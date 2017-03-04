@@ -1,0 +1,34 @@
+Pages
+ |- Home
+ |- Documentation
+    |- Getting Started
+        |- Installation
+        |- Example Project
+    |- Core
+        |- Controllers
+        |- Models
+        |- Routing
+        |- Templating
+            |- Modules
+    |- HTTP
+        |- Middleware
+        |- Requests
+        |- Responses
+    |- Data
+        |- Caching
+        |- Queues
+        |- Sessions
+        |- Storage
+    |- Events
+    |- Authentication
+        |- Session
+        |- oAuth
+        |- JWT
+    |- Mail
+    |- Exceptions
+ |- Contributing
+ |- Packages
+    |- How To
+    |- Reccomended
+ |- Blog
+    |- Posts

@@ -670,6 +670,10 @@ a.entypo-google {
 
 .content {
 	position: relative;
+
+    > h1:first-of-type {
+        margin-top: 0;
+    }
 }
 
 .main {
@@ -751,7 +755,9 @@ a.entypo-google {
 	}
 	a {
 		font-size: .95em;
-		&:hover {
+        color: $copy;
+
+		&:hover, &.active {
 			background: darken($lightbg, 2%);
 		}
 	}

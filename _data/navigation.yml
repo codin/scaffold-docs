@@ -1,13 +1,18 @@
 # Header nav
 header:
-- title: Scaffold
-  url: 'https://github.com/codin/scaffold/'
-
+- title: Documentation
+  url: '/docs/getting-started/installation/'
+- title: Contributing
+  url: '/contributing/'
+- title: Packages
+  url: '/packages/'
+- title: Blog
+  url: '/blog/'
 
 # Footer nav
 footer:
 - title: License
-  url: 'https://www.gnu.org/licenses/gpl.txt'
+  url: '/license'
 - title: GitHub
   url: 'http://github.com/codin/scaffold'
 - title: Twitter
@@ -15,9 +20,65 @@ footer:
 
 # Sidebar nav
 sidebar:
+  - title: Documentation
+    url: '/docs/getting-started/installation/'
+  - title: Contributing
+    url: '/contributing/'
+  - title: Packages
+    url: '/packages/'
+  - title: Blog
+    url: '/blog/'
 
-# Getting started
-- title: Getting started
-  subnav:
-  - title: Installation
-    url: /
+# Documentation data
+documentation:
+  sidebar:
+    - title: Getting started
+      subnav:
+        - title: Installation
+          url: /docs/getting-started/installation
+        - title: Example Project
+          url: /docs/getting-started/example-project
+    - title: Core
+      subnav:
+        - title: Controllers
+          url: '/docs/core/controllers/'
+        - title: Models
+          url: '/docs/core/models/'
+        - title: Routing
+          url: '/docs/core/routing/'
+        - title: Templating
+          url: '/docs/core/templating/'
+    - title: HTTP
+      subnav:
+        - title: Middleware
+          url: '/docs/http/middleware/'
+        - title: Requests
+          url: '/docs/http/requests/'
+        - title: Responses
+          url: '/docs/http/responses/'
+    - title: Data
+      subnav:
+        - title: Caching
+          url: '/docs/data/caching/'
+        - title: Queues
+          url: '/docs/data/queues/'
+        - title: Sessions
+          url: '/docs/data/sessions/'
+        - title: Storage
+          url: '/docs/data/storage/'
+        - title: Events
+          url: '/docs/data/events'
+    - title: Authentication
+      subnav:
+        - title: Session
+          url: '/docs/auth/session/'
+        - title: OAuth
+          url: '/docs/auth/oauth/'
+        - title: JWT
+          url: '/docs/auth/jwt/'
+    - title: Misc
+      subnav:
+        - title: Mail
+          url: '/docs/mail/'
+        - title: Exceptions
+          url: '/docs/exceptions/'

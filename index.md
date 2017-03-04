@@ -3,7 +3,7 @@ layout: page
 title: Getting Started
 ---
 
-## Getting Started
+# Welcome
 
 _The simple yet powerful php framework for developers who don't want to stress when developing complex projects. With microservices and containerized applications in mind. Scaffold makes use of popular libraries and packages to make your lives easier._
 
