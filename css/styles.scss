@@ -10,7 +10,8 @@ layout: none
 
 $lightbg: #ffffff;
 $lighthover: lighten($lightbg, 3.5%);
-$midbg: #FE654F;
+// $midbg: #FE654F;
+$midbg: #30758A;
 $link: #676778;
 $linkcontrast: adjust-hue($link, 100%);
 $subtitle: #272933;
@@ -264,11 +265,11 @@ li {
 a {
 	color: $link;
 	text-decoration: none;
-  border-bottom: 1px solid lighten($link, 40%);
+    border-bottom: 1px solid lighten($link, 40%);
 	@include transition(.2s);
 	&:hover {
 		color: darken($link, 10%);
-    border-color: lighten($link, 20%);
+        border-color: lighten($link, 20%);
 	}
 	&:active {
 		color: darken($link, 20%);
@@ -366,8 +367,9 @@ a.button, .screens a, .screens:hover a, .share-button label, .share-button a {
 	white-space: nowrap;
 	cursor: pointer;
 	font-weight: 500;
-  border: none;
-	span {
+    border: none;
+	
+    span {
 		text-transform: capitalize;
 		font-family: $font;
 		font-weight: 500;
@@ -609,11 +611,11 @@ a.entypo-google {
 	}
 	.button {
 		display: inline;
-        background: darken($midbg, 25%);
+        background: darken($midbg, 15%);
         color: $white;
 
         &:hover {
-            background: darken($midbg, 40%);
+            background: darken($midbg, 25%);
         }
 	}
 	p {
