@@ -12,7 +12,7 @@ header:
 # Footer nav
 footer:
 - title: License
-  url: '/license'
+  url: 'https://codin.github.io/scaffold-docs/license'
 - title: GitHub
   url: 'http://github.com/codin/scaffold'
 - title: Twitter
