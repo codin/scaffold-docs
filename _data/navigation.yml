@@ -35,9 +35,9 @@ documentation:
     - title: Getting started
       subnav:
         - title: Installation
-          url: /docs/getting-started/installation
+          url: /docs/getting-started/installation/
         - title: Example Project
-          url: /docs/getting-started/example-project
+          url: /docs/getting-started/example-project/
     - title: Core
       subnav:
         - title: Controllers
@@ -67,7 +67,7 @@ documentation:
         - title: Storage
           url: '/docs/data/storage/'
         - title: Events
-          url: '/docs/data/events'
+          url: '/docs/data/events/'
     - title: Authentication
       subnav:
         - title: Session
