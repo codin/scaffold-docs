@@ -1,25 +1,25 @@
 <nav class="menu menu--sidebar">
 	<ul>
 		{% for item in site.data.navigation.sidebar %}
-  		<li class="parent-item">
+      		<li class="parent-item">
 
-  			{% if item.url == null %}
-  				<span>{{ item.title }}</span>
-  			{% else %}
-          <a href="{{ site.url }}{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
-        {% endif %}
+      			{% if item.url == null %}
+      				<span>{{ item.title }}</span>
+      			{% else %}
+                    <a href="{{ item.url | absolute_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
+                {% endif %}
 
-  			{% if item.subnav %}
-  				<ul>
-  					{% for subitem in item.subnav %}
-  						<li class="child-item">
-                <a href="{{ site.url }}{{ subitem.url }}" {% if page.url == subitem.url %}class="active"{% endif %}>{{ subitem.title }}</a>
-  						</li>
-  					{% endfor %}
-  				</ul>
-  			{% endif %}
+      			{% if item.subnav %}
+      				<ul>
+      					{% for subitem in item.subnav %}
+      						<li class="child-item">
+                                <a href="{{ subitem.url | absolute_url }}" {% if page.url == subitem.url %}class="active"{% endif %}>{{ subitem.title }}</a>
+      						</li>
+      					{% endfor %}
+      				</ul>
+      			{% endif %}
 
-  		</li>
+      		</li>
 		{% endfor %}
 	</ul>
 </nav>

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		{% include meta.html %}
-		<link href="{{ site.url }}/css/styles.css" media="all" rel="stylesheet">
+		<link href="{{ '/css/styles.css' | absolute_url }}" media="all" rel="stylesheet">
 
 		{% include favicons.html %}
 	</head>
@@ -16,6 +16,6 @@
 
 		{% include footer.html %}
 
-		<script src="{{ site.url }}/js/scripts.js"></script>
+		<script src="{{ '/js/scripts.js' | absolute_url }}"></script>
 	</body>
 </html>
