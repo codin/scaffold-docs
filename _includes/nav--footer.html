@@ -1,7 +1,7 @@
 {% if site.data.navigation.footer %}
   <nav class="menu span-6" role="navigation">
     {% for item in site.data.navigation.footer %}
-      <a href="{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a>
+      <a href="{{ site.url }}{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a>
     {% endfor %}
   </nav>
 {% endif %}

@@ -6,14 +6,14 @@
   			{% if item.url == null %}
   				<span>{{ item.title }}</span>
   			{% else %}
-          <a href="{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
+          <a href="{{ site.url }}{{ item.url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a>
         {% endif %}
 
   			{% if item.subnav %}
   				<ul>
   					{% for subitem in item.subnav %}
   						<li class="child-item">
-                <a href="{{ subitem.url }}" {% if page.url == subitem.url %}class="active"{% endif %}>{{ subitem.title }}</a>
+                <a href="{{ site.url }}{{ subitem.url }}" {% if page.url == subitem.url %}class="active"{% endif %}>{{ subitem.title }}</a>
   						</li>
   					{% endfor %}
   				</ul>
