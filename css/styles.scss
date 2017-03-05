@@ -1085,3 +1085,33 @@ a.entypo-google {
 		position: relative;
 	}
 }
+
+.entypo {
+    font-family: "entypo";
+}
+
+.banner {
+    background-color: #eee;
+    color: #333;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+
+    &--warning {
+        background-color: #ffcc00;
+    }
+
+    * {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    i {
+        font-size: 30px !important;
+        margin-right: 20px;
+        vertical-align: middle;
+        font-style: normal;
+    }
+}
