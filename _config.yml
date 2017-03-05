@@ -23,7 +23,7 @@ excerpt_separator: <!-- more -->
 jekyll-mentions: https://twitter.com
 
 # Site info
-url: "https://codin.github.io/"
+url: "https://codin.github.io"
 title: "Scaffold Documentation"
 name: "Scaffold"
 description: "How to use the Scaffold web framework"
